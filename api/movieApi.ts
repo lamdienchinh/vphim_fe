@@ -1,6 +1,6 @@
 import axiosInstance from "@/config/axios";
 import { IGetParams } from "@/types/common";
-import { ILatestMoviesResponse, IMoviesResponse } from "@/types/movie";
+import { ILatestMoviesResponse, IMovieDetailResponse, IMoviesResponse } from "@/types/movie";
 import { AxiosResponse } from "axios";
 
 export class MovieApi {
@@ -35,7 +35,7 @@ export class MovieApi {
     return axiosInstance.get("v1/api/danh-sach/tv-shows", {
       params,
     });
-  } 
+  }
   // Danh sách hoạt hình
   public static getCartoonMovies(
     params?: IGetParams
@@ -43,5 +43,11 @@ export class MovieApi {
     return axiosInstance.get("v1/api/danh-sach/hoat-hinh", {
       params,
     });
+  }
+  // Chi tiết phim
+  public static getMovieDetail(
+    slug?: string
+  ): Promise<AxiosResponse<IMovieDetailResponse>> {
+    return axiosInstance.get(`phim/${slug}`);
   }
 }

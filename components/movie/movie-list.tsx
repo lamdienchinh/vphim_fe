@@ -33,6 +33,7 @@ export default function MovieList({ movies, imgCDN, title }: MovieListProps) {
             year={movie.year}
             time={movie.time}
             lang={movie.lang}
+            slug={movie.slug}
           />
         ))}
       </div>

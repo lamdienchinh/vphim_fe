@@ -86,3 +86,78 @@ export interface IMoviesResponse {
   };
   status: boolean;
 }
+
+interface TMDB {
+  type: string;
+  id: string;
+  season: number;
+  vote_average: number;
+  vote_count: number;
+}
+
+interface IMDB {
+  id: string | null;
+}
+
+interface Timestamp {
+  time: string;
+}
+
+interface Country {
+  id: string;
+  name: string;
+  slug: string;
+}
+
+export interface IMovieDetail {
+  tmdb: TMDB;
+  imdb: IMDB;
+  created: Timestamp;
+  modified: Timestamp;
+  _id: string;
+  name: string;
+  slug: string;
+  origin_name: string;
+  content: string;
+  type: string;
+  status: string;
+  poster_url: string;
+  thumb_url: string;
+  is_copyright: boolean;
+  sub_docquyen: boolean;
+  chieurap: boolean;
+  trailer_url: string;
+  time: string;
+  episode_current: string;
+  episode_total: string;
+  quality: string;
+  lang: string;
+  notify: string;
+  showtimes: string;
+  year: number;
+  view: number;
+  actor: string[];
+  director: string[];
+  category: Category[];
+  country: Country[];
+}
+
+interface Episode {
+  name: string;
+  slug: string;
+  filename: string;
+  link_embed: string;
+  link_m3u8: string;
+}
+
+interface EpisodeServer {
+  server_name: string;
+  server_data: Episode[];
+}
+
+export interface IMovieDetailResponse {
+  status: boolean;
+  msg: string;
+  movie: IMovieDetail;
+  episodes: EpisodeServer[];
+}
