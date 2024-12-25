@@ -29,7 +29,12 @@ export default function SeriesMovies() {
 
   return (
     <div>
-      <MovieList title="Phim bộ" imgCDN={imgCDN} movies={movies} />
+      <MovieList
+        title="Phim bộ"
+        imgCDN={imgCDN}
+        movies={movies}
+        link={"/series-movies"}
+      />
     </div>
   );
 }

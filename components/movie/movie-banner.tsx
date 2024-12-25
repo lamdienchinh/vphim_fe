@@ -8,6 +8,8 @@ import { Button } from "../ui/button";
 import { useGetLatestMovies } from "@/hooks/useGetLatestMovies";
 import MovieCard from "@/components/movie/movie-card";
 import { ILatestMovie } from "@/types/movie";
+import Link from "next/link";
+import LoadingSnippet from "../loading/loading-snippet";
 
 export default function MovieBanner() {
   const [api, setApi] = useState<CarouselApi>();
@@ -16,7 +18,6 @@ export default function MovieBanner() {
   const { data, isLoading } = useGetLatestMovies();
 
   const movies = data?.items || [];
-
   useEffect(() => {
     if (!api) {
       return;
@@ -31,7 +32,9 @@ export default function MovieBanner() {
   if (isLoading) {
     return (
       <div className="container min-h-screen flex items-center justify-center">
-        Đang tải...
+        <div className="flex items-center gap-2 text-center text-lg text-muted-foreground">
+          <LoadingSnippet /> Đang tải ...
+        </div>
       </div>
     );
   }
@@ -57,8 +60,8 @@ export default function MovieBanner() {
             priority
           />
         </div>
-        <div className="absolute z-1 inset-0 bg-gradient-to-r from-30% via-50% top-90% from-black/90 via-black/20 to-black/80" />
-        <div className="absolute z-1 left-0 inset-y-0 w-[30%] backdrop-blur-lg" />
+        <div className="absolute z-1 inset-0 bg-gradient-to-r from-30% via-50% top-90% from-black/70 via-black/20 to-black/80" />
+        <div className="absolute z-1 left-0 inset-y-0 w-[30%]" />
         <div className="relative z-2 gap-4 text-2xl font-semibold container flex h-full flex-col justify-end items-center">
           <div className="w-full space-y-5">
             <div className="text-4xl leading-[55px] max-w-[50%]">
@@ -68,7 +71,9 @@ export default function MovieBanner() {
               Năm phát hành: {movies[current]?.year}
             </div>
             <div>
-              <Button>Xem ngay</Button>
+              <Button>
+                <Link href={`/movie/${movies[current].slug}`}>Xem ngay</Link>
+              </Button>
             </div>
           </div>
           <div className="py-8 w-full flex justify-center overflow-x-hidden">

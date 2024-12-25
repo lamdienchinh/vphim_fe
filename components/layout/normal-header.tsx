@@ -28,7 +28,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm animate-in slide-in-from-top-0 bg-white/20"`}
+      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm animate-in slide-in-from-top-0 bg-primary/10"`}
     >
       <nav
         className="container flex items-center justify-between py-4"
@@ -56,7 +56,7 @@ export default function Header() {
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="text-white hover:text-primary transition-colors duration-200 !bg-transparent"
+                className="text-primary hover:text-primary transition-colors duration-200 !bg-transparent"
               >
                 Danh mục
               </Button>
@@ -79,7 +79,7 @@ export default function Header() {
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="text-white hover:text-primary transition-colors duration-200 !bg-transparent"
+                className="text-primary hover:text-primary transition-colors duration-200 !bg-transparent"
               >
                 Thể loại
               </Button>
@@ -100,7 +100,7 @@ export default function Header() {
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="text-white hover:text-primary transition-colors duration-200 !bg-transparent"
+                className="text-primary hover:text-primary transition-colors duration-200 !bg-transparent"
               >
                 Năm
               </Button>
@@ -117,7 +117,7 @@ export default function Header() {
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="text-white hover:text-primary transition-colors duration-200 !bg-transparent"
+                className="text-primary hover:text-primary transition-colors duration-200 !bg-transparent"
               >
                 Quốc gia
               </Button>
@@ -140,7 +140,7 @@ export default function Header() {
             <Input
               type="search"
               placeholder="Tìm kiếm phim..."
-              className="w-64 pr-8 border-white rounded-[50px] !text-white"
+              className="w-64 pr-8 border-primary rounded-[50px] !text-primary"
             />
             <Button
               type="submit"
@@ -161,7 +161,7 @@ export default function Header() {
               <Link
                 key={category}
                 href={`/category/${category.toLowerCase().replace(" ", "-")}`}
-                className="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-100 hover:text-primary transition-colors duration-200"
+                className="block rounded-md px-3 py-2 text-base font-medium text-primary hover:bg-gray-100 hover:text-primary transition-colors duration-200"
               >
                 {category}
               </Link>
@@ -170,7 +170,7 @@ export default function Header() {
               <Link
                 key={genre}
                 href={`/genre/${genre.toLowerCase().replace(" ", "-")}`}
-                className="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-100 hover:text-primary transition-colors duration-200"
+                className="block rounded-md px-3 py-2 text-base font-medium text-primary hover:bg-gray-100 hover:text-primary transition-colors duration-200"
               >
                 {genre}
               </Link>
@@ -179,7 +179,7 @@ export default function Header() {
               <Link
                 key={year}
                 href={`/year/${year}`}
-                className="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-100 hover:text-primary transition-colors duration-200"
+                className="block rounded-md px-3 py-2 text-base font-medium text-primary hover:bg-gray-100 hover:text-primary transition-colors duration-200"
               >
                 {year}
               </Link>
@@ -188,7 +188,7 @@ export default function Header() {
               <Link
                 key={country}
                 href={`/country/${country.toLowerCase().replace(" ", "-")}`}
-                className="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-100 hover:text-primary transition-colors duration-200"
+                className="block rounded-md px-3 py-2 text-base font-medium text-primary hover:bg-gray-100 hover:text-primary transition-colors duration-200"
               >
                 {country}
               </Link>

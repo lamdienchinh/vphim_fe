@@ -38,18 +38,18 @@ export default function MovieCard({
           />
           <div className="flex items-center gap-2 absolute right-4 top-2">
             {!!lang && (
-              <div className="rounded-[50px] text-sm px-2 py-1 bg-yellow-200 text-yellow-700 backdrop-blur-md font-semibold">
+              <div className="rounded-[50px] text-xs px-2 py-1 bg-yellow-200 text-yellow-700 backdrop-blur-md font-semibold w-fit">
                 {lang}
               </div>
             )}
             {!!time && (
-              <div className="rounded-[50px] text-sm px-2 py-1 bg-blue-200 text-blue-700 backdrop-blur-md font-semibold">
+              <div className="rounded-[50px] text-xs px-2 py-1 bg-blue-200 text-blue-700 backdrop-blur-md font-semibold w-fit">
                 {time}
               </div>
             )}
           </div>
           {showTitle && (
-            <div className="absolute w-[90%] left-1/2 -translate-x-1/2 h-fit bg-white/30 backdrop-blur-lg rounded-xl group-hover:bottom-5 -bottom-[100%] p-4 transition-all duration-300">
+            <div className="absolute w-[90%] left-1/2 -translate-x-1/2 h-fit bg-primary/30 backdrop-blur-lg rounded-xl group-hover:bottom-5 -bottom-[100%] p-4 transition-all duration-300">
               <h2 className="text-sm font-bold mb-2 uppercase">{title}</h2>
               <p className="text-sm font-bold">{year}</p>
             </div>

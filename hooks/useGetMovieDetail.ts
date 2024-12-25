@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useGetMovieDetail = (slug?: string) => {
   return useQuery<IMovieDetailResponse, Error>({
-    queryKey: ["movieDetail", slug],
+    queryKey: ["movie-detail", slug],
     queryFn: async () => {
       const result = await MovieApi.getMovieDetail(slug);
       return result?.data;

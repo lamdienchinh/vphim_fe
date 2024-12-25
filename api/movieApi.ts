@@ -1,6 +1,10 @@
 import axiosInstance from "@/config/axios";
-import { IGetParams } from "@/types/common";
-import { ILatestMoviesResponse, IMovieDetailResponse, IMoviesResponse } from "@/types/movie";
+import { IGetParams, ISearchParams } from "@/types/common";
+import {
+  ILatestMoviesResponse,
+  IMovieDetailResponse,
+  IMoviesResponse,
+} from "@/types/movie";
 import { AxiosResponse } from "axios";
 
 export class MovieApi {
@@ -49,5 +53,11 @@ export class MovieApi {
     slug?: string
   ): Promise<AxiosResponse<IMovieDetailResponse>> {
     return axiosInstance.get(`phim/${slug}`);
+  }
+  // Tìm phim theo từ khoá
+  public static searchMovies(params?: ISearchParams): Promise<AxiosResponse<IMoviesResponse>> {
+    return axiosInstance.get(`v1/api/tim-kiem`, {
+      params,
+    });
   }
 }

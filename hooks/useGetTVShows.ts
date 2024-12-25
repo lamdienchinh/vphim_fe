@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useGetTVShows = (params?: IGetParams) => {
   return useQuery<IMoviesResponse, Error>({
-    queryKey: ["TVShows"],
+    queryKey: ["tw-shows"],
     queryFn: async () => {
       const result = await MovieApi.getTVShows(params);
       return result?.data;

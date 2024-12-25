@@ -29,7 +29,7 @@ export default function TVShows() {
 
   return (
     <div>
-      <MovieList title="Phim hoạt hình" imgCDN={imgCDN} movies={movies} />
+      <MovieList title="Phim hoạt hình" imgCDN={imgCDN} movies={movies} link={'/tv-shows'}/>
     </div>
   );
 }

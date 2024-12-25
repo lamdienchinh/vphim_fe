@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useGetSingleMovies = (params?: IGetParams) => {
   return useQuery<IMoviesResponse, Error>({
-    queryKey: ["singleMovies"],
+    queryKey: ["single-movies"],
     queryFn: async () => {
       const result = await MovieApi.getSingleMovies(params);
       return result?.data;

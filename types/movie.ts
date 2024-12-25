@@ -15,6 +15,9 @@ export interface ILatestMovie {
   thumb_url: string;
   year: number;
   name: string;
+  slug: string;
+  time?: string;
+  lang?: string;
 }
 
 export interface IMovie {
@@ -64,12 +67,12 @@ export interface IMoviesResponse {
       filterCountry: string[];
       filterType: string[];
       filterYear: string[];
-    };
-    pagination: {
-      currentPage: number;
-      totalItems: number;
-      totalItemsPerPage: number;
-      totalPages: number;
+      pagination: {
+        currentPage: number;
+        totalItems: number;
+        totalItemsPerPage: number;
+        totalPages: number;
+      };
     };
     sortField: string;
     sortType: string;

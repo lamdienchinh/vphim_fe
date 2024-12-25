@@ -29,7 +29,12 @@ export default function CartoonMovies() {
 
   return (
     <div>
-      <MovieList title="Phim hoạt hình" imgCDN={imgCDN} movies={movies} />
+      <MovieList
+        title="Phim hoạt hình"
+        imgCDN={imgCDN}
+        movies={movies}
+        link={"/cartoon-movies"}
+      />
     </div>
   );
 }

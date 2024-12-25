@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useGetLatestMovies = (params?: IGetParams) => {
   return useQuery<ILatestMoviesResponse, Error>({
-    queryKey: ["latestMovies"],
+    queryKey: ["latest-movies", params],
     queryFn: async () => {
       const result = await MovieApi.getLatestMovies(params);
       return result?.data;

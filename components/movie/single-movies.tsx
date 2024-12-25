@@ -29,7 +29,7 @@ export default function SingleMovies() {
 
   return (
     <div>
-      <MovieList title="Phim lẻ" imgCDN={imgCDN} movies={movies} />
+      <MovieList title="Phim lẻ" imgCDN={imgCDN} movies={movies} link={'/single-movies'}/>
     </div>
   );
 }
