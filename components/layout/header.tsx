@@ -215,7 +215,7 @@ export default function Header() {
                 ))}
                 {!!data?.data?.items && (
                   <DropdownMenuItem>
-                    <Link className="text-center" href={`/search/${query}`}>
+                    <Link className="text-center" href={`/search/${encodeURI(query)}`}>
                       Xem thêm kết quả khác
                     </Link>
                   </DropdownMenuItem>
