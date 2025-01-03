@@ -61,7 +61,9 @@ export default function Header() {
 
   const handleLogout = async () => {
     await AuthenApi.logout();
-    localStorage.removeItem("token");
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("token");
+    }
     document.cookie = "session_vphim=;";
     refetch();
   };

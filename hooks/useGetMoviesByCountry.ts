@@ -1,4 +1,4 @@
-import { CategoryApi } from "@/api/categoryApi";
+"use client";
 import { CountryApi } from "@/api/countryApi";
 import {
   IGetMoviesByCountry,

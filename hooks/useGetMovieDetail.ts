@@ -1,3 +1,4 @@
+"use client";
 import { MovieApi } from "@/api/movieApi";
 import { IMovieDetailResponse } from "@/types/movie";
 import { useQuery } from "@tanstack/react-query";

@@ -1,3 +1,4 @@
+"use client";
 import { MovieApi } from "@/api/movieApi";
 import { IGetParams } from "@/types/common";
 import { IMoviesResponse } from "@/types/movie";
@@ -5,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useGetTVShows = (params?: IGetParams) => {
   return useQuery<IMoviesResponse, Error>({
-    queryKey: ["tw-shows"],
+    queryKey: ["tw-shows", params],
     queryFn: async () => {
       const result = await MovieApi.getTVShows(params);
       return result?.data;

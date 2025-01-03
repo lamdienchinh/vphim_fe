@@ -1,16 +1,17 @@
 "use client";
 
-import { useParams } from "next/navigation";
 import MovieCard from "@/components/movie/movie-card";
-import { useState } from "react";
 import Pagination from "@/components/pagination/normal-pagination";
-import { Badge } from "@/components/ui/badge";
 import SkeletonGrid from "@/components/skeleton/skeleton-grid";
+import { Badge } from "@/components/ui/badge";
 import { useSearchMovies } from "@/hooks/useSearchMovies";
+import { useParams } from "next/navigation";
+import { useState } from "react";
 
 export default function SearchPage() {
-  const { keyword } = useParams();
-
+  const params = useParams();
+  const keyword = params?.keyword;
+  
   const [currentPage, setCurrentPage] = useState(1);
   const limit = 20; // Số lượng phim trên mỗi trang
 
@@ -45,7 +46,9 @@ export default function SearchPage() {
         <div className="flex items-center gap-2 mb-8 uppercase text-lg font-bold">
           <h1>
             Danh sách phim với từ khoá:{" "}
-            <span className='text-white'>&ldquo;{decodeURI(keyword as string)}&rdquo;</span>
+            <span className="text-white">
+              &ldquo;{decodeURI(keyword as string)}&rdquo;
+            </span>
           </h1>
           <Badge>{totalItems} phim</Badge>
         </div>

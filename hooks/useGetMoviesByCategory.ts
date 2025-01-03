@@ -1,3 +1,4 @@
+"use client";
 import { CategoryApi } from "@/api/categoryApi";
 import { IGetMoviesByCategory, IGetMoviesByCategoryResponse } from "@/types/category";
 import { useQuery } from "@tanstack/react-query";

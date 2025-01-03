@@ -1,3 +1,4 @@
+"use client";
 import { CategoryApi } from "@/api/categoryApi";
 import { ICategory } from "@/types/category";
 import { useQuery } from "@tanstack/react-query";

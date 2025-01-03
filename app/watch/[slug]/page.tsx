@@ -6,7 +6,8 @@ import { useGetMovieDetail } from "@/hooks/useGetMovieDetail";
 import { useParams } from "next/navigation";
 
 export default function WatchPage() {
-  const { slug } = useParams();
+  const params = useParams();
+  const slug = params?.slug;
   const { data, isLoading } = useGetMovieDetail(slug as string);
   const episodes = data?.episodes;
   const movie = data?.movie;

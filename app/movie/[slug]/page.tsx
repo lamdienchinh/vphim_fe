@@ -1,11 +1,12 @@
 "use client";
-import { useGetMovieDetail } from "@/hooks/useGetMovieDetail";
-import { MovieInfo } from "@/components/movie-detail/movie-info";
-import { useParams } from "next/navigation";
 import LoadingSnippet from "@/components/loading/loading-snippet";
+import { MovieInfo } from "@/components/movie-detail/movie-info";
+import { useGetMovieDetail } from "@/hooks/useGetMovieDetail";
+import { useParams } from "next/navigation";
 
 export default function MoviePage() {
-  const { slug } = useParams();
+  const params = useParams();
+  const slug = params?.slug;
   const { data, isLoading } = useGetMovieDetail(slug as string);
   const movie = data?.movie;
 

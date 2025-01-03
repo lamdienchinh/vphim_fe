@@ -1,3 +1,4 @@
+"use client";
 import { CountryApi } from "@/api/countryApi";
 import { ICountry } from "@/types/country";
 import { useQuery } from "@tanstack/react-query";

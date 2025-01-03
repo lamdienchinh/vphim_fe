@@ -1,3 +1,4 @@
+"use client";
 import { MovieApi } from "@/api/movieApi";
 import { IGetParams } from "@/types/common";
 import { ILatestMoviesResponse } from "@/types/movie";

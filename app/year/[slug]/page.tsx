@@ -1,13 +1,15 @@
 "use client";
+import MovieCard from "@/components/movie/movie-card";
+import Pagination from "@/components/pagination/normal-pagination";
+import SkeletonGrid from "@/components/skeleton/skeleton-grid";
+import { Badge } from "@/components/ui/badge";
 import { useGetMoviesByYear } from "@/hooks/useGetMoviesByYear";
 import { useParams } from "next/navigation";
-import MovieCard from "@/components/movie/movie-card";
 import { useState } from "react";
-import Pagination from "@/components/pagination/normal-pagination";
-import { Badge } from "@/components/ui/badge";
-import SkeletonGrid from "@/components/skeleton/skeleton-grid";
+
 export default function YearPage() {
-  const { slug } = useParams();
+  const params = useParams();
+  const slug = params?.slug;
 
   const [currentPage, setCurrentPage] = useState(1);
   const limit = 20; // Số lượng phim trên mỗi trang

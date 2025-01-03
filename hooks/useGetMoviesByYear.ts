@@ -1,3 +1,4 @@
+"use client";
 import { YearApi } from "@/api/yearApi";
 import { IGetMoviesByYear, IGetMoviesByYearResponse } from "@/types/year";
 import { useQuery } from "@tanstack/react-query";

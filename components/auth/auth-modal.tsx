@@ -52,9 +52,10 @@ export function AuthModal({ isOpen, setIsOpen }: AuthModalProps) {
         };
         const result = await AuthenApi.login(body);
         const { accessToken } = result?.data;
-
-        if (accessToken) {
-          localStorage.setItem("token", accessToken);
+        if (typeof window !== "undefined") {
+          if (accessToken) {
+            localStorage.setItem("token", accessToken);
+          }
         }
         setIsOpen(false);
       } else {

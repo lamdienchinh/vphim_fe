@@ -1,9 +1,13 @@
+"use client";
 import { UserApi } from "@/api/userApi";
 import { IUser } from "@/types/user";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetUserProfile = () => {
-  const token = localStorage.getItem("token");
+  let token = null;
+  if (typeof window !== "undefined") {
+    token = localStorage?.getItem("token");
+  }
 
   return useQuery<IUser | null, Error>({
     queryKey: ["user-profile", token],
