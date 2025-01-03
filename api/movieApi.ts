@@ -1,4 +1,4 @@
-import axiosInstance from "@/config/axios";
+import axiosInstance from "@/config/axiosV1";
 import { IGetParams, ISearchParams } from "@/types/common";
 import {
   ILatestMoviesResponse,
@@ -55,7 +55,9 @@ export class MovieApi {
     return axiosInstance.get(`phim/${slug}`);
   }
   // Tìm phim theo từ khoá
-  public static searchMovies(params?: ISearchParams): Promise<AxiosResponse<IMoviesResponse>> {
+  public static searchMovies(
+    params?: ISearchParams
+  ): Promise<AxiosResponse<IMoviesResponse>> {
     return axiosInstance.get(`v1/api/tim-kiem`, {
       params,
     });

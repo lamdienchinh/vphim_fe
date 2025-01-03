@@ -12,7 +12,7 @@ export default function SearchPage() {
   const { keyword } = useParams();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const limit = 18; // Số lượng phim trên mỗi trang
+  const limit = 20; // Số lượng phim trên mỗi trang
 
   // Gọi hook với tham số phân trang
   const { data, isLoading } = useSearchMovies({
@@ -28,7 +28,7 @@ export default function SearchPage() {
   if (isLoading) {
     return (
       <div className="container py-8 mt-[100px]">
-        <SkeletonGrid count={18} />
+        <SkeletonGrid count={20} />
       </div>
     );
   }

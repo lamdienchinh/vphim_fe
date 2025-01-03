@@ -1,9 +1,5 @@
-import { LoaderCircle } from "lucide-react";
+import MovieLoading from "./cinematic-loading";
 
 export default function LoadingSnippet() {
-  return (
-    <div className="animate-spin h-fit w-fit">
-      <LoaderCircle />
-    </div>
-  );
+  return <MovieLoading />;
 }

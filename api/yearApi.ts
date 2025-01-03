@@ -1,4 +1,4 @@
-import axiosInstance from "@/config/axios";
+import axiosInstance from "@/config/axiosV1";
 import { IGetMoviesByYear, IGetMoviesByYearResponse } from "@/types/year";
 import { AxiosResponse } from "axios";
 

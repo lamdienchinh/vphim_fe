@@ -1,11 +1,12 @@
 "use client";
+import SkeletonGrid from "../skeleton/skeleton-grid";
 import MovieList from "./movie-list";
 import { useGetSeriesMovies } from "@/hooks/useGetSeriesMovies";
 
 export default function SeriesMovies() {
   const { data, isLoading } = useGetSeriesMovies({
     page: 1,
-    limit: 15,
+    limit: 20,
   });
 
   const movies = data?.data?.items || [];
@@ -13,8 +14,8 @@ export default function SeriesMovies() {
 
   if (isLoading) {
     return (
-      <div className="container min-h-screen flex items-center justify-center">
-        Đang tải...
+      <div className="container">
+        <SkeletonGrid count={20} />;
       </div>
     );
   }

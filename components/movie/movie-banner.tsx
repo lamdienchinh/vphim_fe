@@ -1,15 +1,15 @@
 "use client";
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { type CarouselApi } from "@/components/ui/carousel";
-import { Button } from "../ui/button";
-import { useGetLatestMovies } from "@/hooks/useGetLatestMovies";
 import MovieCard from "@/components/movie/movie-card";
+import { type CarouselApi } from "@/components/ui/carousel";
+import { useGetLatestMovies } from "@/hooks/useGetLatestMovies";
 import { ILatestMovie } from "@/types/movie";
+import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
 import Link from "next/link";
-import LoadingSnippet from "../loading/loading-snippet";
+import { useEffect, useState } from "react";
+import Spinner from "../loading/loader-circle";
+import { Button } from "../ui/button";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 export default function MovieBanner() {
   const [api, setApi] = useState<CarouselApi>();
@@ -31,10 +31,8 @@ export default function MovieBanner() {
 
   if (isLoading) {
     return (
-      <div className="container min-h-screen flex items-center justify-center">
-        <div className="flex items-center gap-2 text-center text-lg text-muted-foreground">
-          <LoadingSnippet /> Đang tải ...
-        </div>
+      <div className="flex items-center justify-center rounded-lg h-screen mx-auto">
+        <Spinner />
       </div>
     );
   }

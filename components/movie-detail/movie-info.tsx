@@ -1,5 +1,3 @@
-"use client";
-
 import { IMovieDetail } from "@/types/movie";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,33 +7,30 @@ import { PlayCircle, Clock, Star, Calendar, Globe } from "lucide-react";
 import React from "react";
 import { Card, CardContent } from "../ui/card";
 
-export const MovieInfo = (({ movie }: { movie: IMovieDetail }) => {
+export const MovieInfo = ({ movie }: { movie: IMovieDetail }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background/95 to-background">
-      <div className="relative h-[60vh] w-full">
+    <div className="relative min-h-screen bg-gradient-to-b from-background/95 to-background">
+      <div className="absolute h-[100vh] w-full">
         <div className="absolute inset-0">
           <Image
-            src={movie?.poster_url ?? "/placeholder.svg?height=450&width=300"}
+            src={movie?.thumb_url}
             alt="Movie backdrop"
             fill
-            className="object-cover object-center opacity-30"
+            className="object-cover object-center opacity-30 h-full w-full"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
         </div>
       </div>
 
-      <div className="relative -mt-48 container mx-auto pb-12">
+      <div className="relative pt-[140px] container mx-auto pb-12">
         <div className="grid lg:grid-cols-12 gap-8">
           <div className="lg:col-span-4 xl:col-span-3">
             <Card className="">
               <CardContent className="p-0">
                 <div className="relative aspect-[2/3] rounded-t-lg overflow-hidden">
                   <Image
-                    src={
-                      movie?.poster_url ??
-                      "/placeholder.svg?height=450&width=300"
-                    }
+                    src={movie?.poster_url}
                     alt={movie.name}
                     fill
                     className="object-cover"
@@ -149,7 +144,7 @@ export const MovieInfo = (({ movie }: { movie: IMovieDetail }) => {
       </div>
     </div>
   );
-});
+};
 
 const QuickInfoItem = ({
   icon,

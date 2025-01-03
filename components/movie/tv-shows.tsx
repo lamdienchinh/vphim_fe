@@ -1,11 +1,12 @@
 "use client";
 import { useGetTVShows } from "@/hooks/useGetTVShows";
 import MovieList from "./movie-list";
+import SkeletonGrid from "../skeleton/skeleton-grid";
 
 export default function TVShows() {
   const { data, isLoading } = useGetTVShows({
     page: 1,
-    limit: 15,
+    limit: 20,
   });
 
   const movies = data?.data?.items || [];
@@ -13,8 +14,8 @@ export default function TVShows() {
 
   if (isLoading) {
     return (
-      <div className="container min-h-screen flex items-center justify-center">
-        Đang tải...
+      <div className="container">
+        <SkeletonGrid count={20} />;
       </div>
     );
   }
@@ -29,7 +30,12 @@ export default function TVShows() {
 
   return (
     <div>
-      <MovieList title="Phim hoạt hình" imgCDN={imgCDN} movies={movies} link={'/tv-shows'}/>
+      <MovieList
+        title="Phim hoạt hình"
+        imgCDN={imgCDN}
+        movies={movies}
+        link={"/tv-shows"}
+      />
     </div>
   );
 }

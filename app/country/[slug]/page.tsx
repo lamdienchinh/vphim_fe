@@ -11,7 +11,7 @@ export default function CountryPage() {
   const { slug } = useParams();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const limit = 18; // Số lượng phim trên mỗi trang
+  const limit = 20; // Số lượng phim trên mỗi trang
 
   // Gọi hook với tham số phân trang
   const { data, isLoading } = useGetMoviesByCountry({
@@ -27,7 +27,7 @@ export default function CountryPage() {
   if (isLoading) {
     return (
       <div className="container py-8 mt-[100px]">
-        <SkeletonGrid count={18} />
+        <SkeletonGrid count={20} />
       </div>
     );
   }
