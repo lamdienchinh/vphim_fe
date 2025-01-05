@@ -1,10 +1,10 @@
 "use client";
 import MovieCard from "@/components/movie/movie-card";
-import { useState } from "react";
 import Pagination from "@/components/pagination/normal-pagination";
+import SkeletonGrid from "@/components/skeleton/skeleton-grid";
 import { Badge } from "@/components/ui/badge";
 import { useGetSingleMovies } from "@/hooks/useGetSingleMovies";
-import SkeletonGrid from "@/components/skeleton/skeleton-grid";
+import { useState } from "react";
 
 export default function SingleMoviesPage() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -31,7 +31,7 @@ export default function SingleMoviesPage() {
   const movies = data?.data?.items;
   const totalPages = data?.data?.params?.pagination?.totalPages ?? 0;
   const totalItems = data?.data?.params?.pagination?.totalItems ?? 0;
-  const imgCDN = data?.data.APP_DOMAIN_CDN_IMAGE || '';
+  const imgCDN = data?.data.APP_DOMAIN_CDN_IMAGE || "";
 
   return (
     <div className="container py-8 mt-[100px]">
@@ -39,7 +39,7 @@ export default function SingleMoviesPage() {
         <h1>Danh sách phim lẻ</h1>
         <Badge>{totalItems} phim</Badge>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {movies?.map((movie) => (
           <MovieCard
             key={movie._id}

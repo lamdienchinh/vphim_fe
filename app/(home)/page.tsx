@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <main className="space-y-5">
       <MovieBanner />
-      <SingleMovies />
-      <SeriesMovies />
       <CartoonMovies />
+      <SeriesMovies />
+      <SingleMovies />
       <TVShows />
     </main>
   );

@@ -11,7 +11,7 @@ import { useState } from "react";
 export default function SearchPage() {
   const params = useParams();
   const keyword = params?.keyword;
-  
+
   const [currentPage, setCurrentPage] = useState(1);
   const limit = 20; // Số lượng phim trên mỗi trang
 
@@ -53,7 +53,7 @@ export default function SearchPage() {
           <Badge>{totalItems} phim</Badge>
         </div>
       )}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {movies?.map((movie) => (
           <MovieCard
             key={movie._id}

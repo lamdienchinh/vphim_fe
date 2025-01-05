@@ -1,10 +1,10 @@
 "use client";
 import MovieCard from "@/components/movie/movie-card";
-import { useState } from "react";
 import Pagination from "@/components/pagination/normal-pagination";
+import SkeletonGrid from "@/components/skeleton/skeleton-grid";
 import { Badge } from "@/components/ui/badge";
 import { useGetCartoonMovies } from "@/hooks/useGetCartoonMovies";
-import SkeletonGrid from "@/components/skeleton/skeleton-grid";
+import { useState } from "react";
 
 export default function CartoonMoviesPage() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -39,7 +39,7 @@ export default function CartoonMoviesPage() {
         <h1>Danh sách phim hoạt hình</h1>
         <Badge>{totalItems} phim</Badge>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {movies?.map((movie) => (
           <MovieCard
             key={movie._id}

@@ -153,7 +153,7 @@ export default function Header() {
                   Năm
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="grid grid-cols-6 max-h-[40vh]">
+              <DropdownMenuContent className="grid grid-cols-5 max-h-[40vh]">
                 {years.map((year) => (
                   <DropdownMenuItem key={year}>
                     <Link href={`/year/${year}`}>{year}</Link>

@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 interface Episode {
   name: string;
@@ -19,39 +19,21 @@ interface EpisodeServer {
 }
 
 export function EpisodeList({ episodes }: { episodes: EpisodeServer[] }) {
-  const [selectedEpisode, setSelectedEpisode] = useState<Episode | null | undefined>(
-    episodes?.[0]?.server_data?.[0]
-  );
-  const [isIframeLoaded, setIsIframeLoaded] = useState(false);
+  const [selectedEpisode, setSelectedEpisode] = useState<
+    Episode | null | undefined
+  >(episodes?.[0]?.server_data?.[0]);
 
   return (
     <div className="mt-8 space-y-4">
-      <AnimatePresence mode="wait">
-        {selectedEpisode && (
-          <motion.div
-            key={selectedEpisode.slug}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="aspect-video relative"
-          >
-            <motion.div
-              initial={{ opacity: 1 }}
-              animate={{ opacity: isIframeLoaded ? 0 : 1 }}
-              className="absolute inset-0 bg-gray-200 dark:bg-gray-800 flex items-center justify-center"
-            >
-              <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-            </motion.div>
-            <iframe
-              src={selectedEpisode.link_embed}
-              className="w-full h-full"
-              allowFullScreen
-              onLoad={() => setIsIframeLoaded(true)}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {selectedEpisode && (
+        <div key={selectedEpisode.slug} className="aspect-video relative">
+          <iframe
+            src={selectedEpisode.link_embed}
+            className="w-full h-full"
+            allowFullScreen
+          />
+        </div>
+      )}
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -69,7 +51,9 @@ export function EpisodeList({ episodes }: { episodes: EpisodeServer[] }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * index }}
             >
-              <TabsTrigger value={server.server_name}>{server.server_name}</TabsTrigger>
+              <TabsTrigger value={server.server_name}>
+                {server.server_name}
+              </TabsTrigger>
             </motion.div>
           ))}
         </TabsList>
@@ -79,7 +63,7 @@ export function EpisodeList({ episodes }: { episodes: EpisodeServer[] }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-2"
+              className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-12 gap-2"
             >
               {server.server_data.map((episode, index) => (
                 <motion.div
@@ -89,7 +73,11 @@ export function EpisodeList({ episodes }: { episodes: EpisodeServer[] }) {
                   transition={{ delay: 0.03 * index }}
                 >
                   <Button
-                    variant={selectedEpisode?.slug === episode.slug ? "default" : "outline"}
+                    variant={
+                      selectedEpisode?.slug === episode.slug
+                        ? "default"
+                        : "outline"
+                    }
                     onClick={() => setSelectedEpisode(episode)}
                     className="w-full"
                   >
@@ -104,4 +92,3 @@ export function EpisodeList({ episodes }: { episodes: EpisodeServer[] }) {
     </div>
   );
 }
-

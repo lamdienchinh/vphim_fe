@@ -34,7 +34,6 @@ axiosInstance.interceptors.response.use(
       console.log("Token expired or unauthorized");
     } else {
       // Xử lý lỗi khác
-      console.error(error);
     }
     return Promise.reject(error);
   }
